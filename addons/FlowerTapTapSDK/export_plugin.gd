@@ -70,20 +70,5 @@ class AndroidExportPlugin extends EditorExportPlugin:
         <uses-permission android:name="android.permission.INTERNET"></uses-permission>
         """
 
-    func _get_android_manifest_application_element_contents(platform: EditorExportPlatform, debug: bool) -> String:
-        return """
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-    
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        """
-
     func _get_name():
         return _plugin_name
