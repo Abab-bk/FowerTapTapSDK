@@ -2,6 +2,8 @@
 
 TapTapSDK for Godot4.2
 
+*本插件仅支持且只支持最新的Godot版本，当前版本：Godot4.2.1*
+
 ## 啥？
 
 Godot4.2 及以上适用的 TapTapSDK 接入。
