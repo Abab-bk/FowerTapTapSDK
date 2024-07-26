@@ -1,0 +1,44 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'com.flower.taptapsdkplugin'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+//    implementation files('../libs/godot-lib.template_debug.aar')
+    compileOnly files('../libs/godot-lib.template_release.aar')
+    compileOnly fileTree(dir: '../taptapSdk', include: ['*.aar'])
+
+    // 数据存储
+    implementation 'com.taptap:lc-storage-android:8.2.24'
+    // 即时通讯
+    implementation 'com.taptap:lc-realtime-android:8.2.24'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
